@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.title {
+    color: #e0e0e0;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.calculator {
+    background: #1e1e2e;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    width: 340px;
+}
+
+/* Display */
+.display {
+    background: #12121f;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.expression {
+    color: #6c7086;
+    font-size: 0.95rem;
+    min-height: 20px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.result {
+    color: #cdd6f4;
+    font-size: 2.4rem;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.result.error {
+    color: #f38ba8;
+    font-size: 1.6rem;
+}
+
+/* Buttons Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 18px 10px;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s, box-shadow 0.2s;
+    outline: none;
+    user-select: none;
+}
+
+.btn:active {
+    transform: scale(0.94);
+}
+
+.btn-number {
+    background: #313244;
+    color: #cdd6f4;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-number:hover {
+    background: #45475a;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.btn-operator {
+    background: #7287fd;
+    color: #1e1e2e;
+    box-shadow: 0 4px 6px rgba(114, 135, 253, 0.3);
+}
+
+.btn-operator:hover {
+    background: #89b4fa;
+    box-shadow: 0 6px 12px rgba(137, 180, 250, 0.4);
+}
+
+.btn-equals {
+    background: #a6e3a1;
+    color: #1e1e2e;
+    box-shadow: 0 4px 6px rgba(166, 227, 161, 0.3);
+}
+
+.btn-equals:hover {
+    background: #b4f0ae;
+    box-shadow: 0 6px 12px rgba(166, 227, 161, 0.4);
+}
+
+.btn-clear {
+    background: #45475a;
+    color: #cba6f7;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-clear:hover {
+    background: #585b70;
+}
+
+.btn-wide {
+    grid-column: span 2;
+}
+
+/* History */
+.history-section {
+    margin-top: 20px;
+    border-top: 1px solid #313244;
+    padding-top: 16px;
+}
+
+.history-section h3 {
+    color: #6c7086;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+#history-list {
+    list-style: none;
+    max-height: 130px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: #45475a transparent;
+}
+
+#history-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+#history-list::-webkit-scrollbar-thumb {
+    background: #45475a;
+    border-radius: 4px;
+}
+
+#history-list li {
+    background: #12121f;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #a6adc8;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+#history-list li:hover {
+    background: #1e1e2e;
+}
+
+#history-list li .hist-expr {
+    color: #6c7086;
+}
+
+#history-list li .hist-result {
+    color: #a6e3a1;
+    font-weight: 600;
+}
+
+.btn-clear-history {
+    background: none;
+    border: 1px solid #313244;
+    color: #6c7086;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn-clear-history:hover {
+    background: #313244;
+    color: #cdd6f4;
+}
